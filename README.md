@@ -1,15 +1,17 @@
 # JARVIS Assistant
 
-Un asistente virtual tipo JARVIS para tu computadora, hecho en Python. Escucha tu voz, reconoce comandos y responde con voz.
+Un asistente virtual avanzado inspirado en JARVIS, con reconocimiento de voz, texto a voz, automatización básica del sistema y soporte opcional para IA con OpenAI.
 
 ## Características
 
 - Reconocimiento de voz en español
-- Respuesta con voz mediante TTS
+- Respuesta por voz (TTS)
+- Búsqueda en Google
 - Apertura de sitios web
+- Apertura de aplicaciones del sistema
 - Consulta de hora y fecha
-- Comandos básicos de sistema
-- Fácil de ampliar con nuevas funciones
+- Soporte opcional con OpenAI para responder preguntas más complejas
+- Fácil de ampliar
 
 ## Requisitos
 
@@ -19,20 +21,37 @@ Un asistente virtual tipo JARVIS para tu computadora, hecho en Python. Escucha t
 
 ## Instalación
 
+1. Clona o descarga este proyecto.
+2. Instala dependencias:
+
 ```bash
 pip install -r requirements.txt
 ```
 
-Si en tu sistema aparece un error con `pyaudio`, instala primero el paquete del sistema:
+3. Crea un archivo `.env` basado en `.env.example`:
 
-- Windows: normalmente funciona con el paquete de Python directamente.
-- Linux (Ubuntu/Debian):
+```bash
+cp .env.example .env
+```
+
+4. Si quieres usar IA con OpenAI, agrega tu clave:
+
+```env
+OPENAI_API_KEY=tu_clave_aqui
+```
+
+## Si falla `pyaudio`
+
+### Windows
+Normalmente funciona con pip directamente.
+
+### Linux (Ubuntu/Debian)
 
 ```bash
 sudo apt install portaudio19-dev python3-pyaudio
 ```
 
-- macOS:
+### macOS
 
 ```bash
 brew install portaudio
@@ -51,16 +70,25 @@ python main.py
 - "qué fecha es"
 - "abre google"
 - "abre youtube"
+- "abre notepad"
+- "abre calculadora"
 - "busca inteligencia artificial"
-- "apágate" o "salir"
+- "pregunta ¿qué es la programación?"
+- "ayuda"
+- "salir"
+
+## Notas
+
+- Si no agregas `OPENAI_API_KEY`, JARVIS seguirá funcionando con comandos básicos.
+- La IA solo se usa cuando tú preguntes algo o le digas "pregunta ...".
 
 ## Personalización
 
-Puedes ampliar la lógica en el archivo `main.py` para:
+Puedes expandir el proyecto para:
 
-- abrir apps del sistema
-- controlar navegador
-- consultar clima o noticias
-- hablar con una API de IA
-- crear una interfaz gráfica
+- abrir más programas del sistema
+- controlar navegador con más precisión
+- consultar clima
+- usar funciones de escritorio automatizadas
+- integrar una interfaz gráfica tipo HUD
 
